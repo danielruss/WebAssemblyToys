@@ -1,1 +1,17 @@
-../JSPlayground/my.css
+#cout {
+  background-color: green;
+  color: greenyellow;
+  height: 30%;
+  width: 80%;
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+
+  overflow-y: scroll;
+}
+.err {
+  background-color: red;
+  color: yellow;
+  padding: 10px;
+}
+
+
