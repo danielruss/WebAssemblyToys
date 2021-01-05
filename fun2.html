@@ -1,0 +1,38 @@
+<html>
+  <head>
+      <link rel="stylesheet" href="my.css"></link>
+  </head>
+  <body>
+      <input id="myN" type="number">
+      <button id="Nbutt" value="" type="button">click</button>
+      <div id="cout"></div>
+  </body>
+
+    <script>
+      function log(x) {
+        x = x + "";
+        cout.insertAdjacentElement("beforeend", document.createElement("br"));
+        cout.insertAdjacentText("beforeend", x);
+      }
+    </script>
+    <script async type="text/javascript" src="fun.js"></script>
+
+    <script async>
+        function check(event) {
+            console.log("in check", myN);
+            if (myN.value != lastValue) {
+              console.log(myN.value);
+              log(npi(myN.value));
+            }
+          }
+    
+        let lastValue = "";
+        Nbutt.addEventListener("click", check);
+        console.log(myN);
+    
+        var npi = (x) => x | (0 + 1);
+        window.onload = (event) => {
+            npi = Module.cwrap("npi", "number", ["number"]);
+        };
+    </script>
+</html>
