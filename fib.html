@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link href="my.css" rel="stylesheet">
+  </head>
+  <body>
+      <h1>fibernacci calculater WASM style!!</h1>
+      <form id="fib_form">
+          <label for="fib_n">Enter number from 0 to 40 (N) </label>
+          <input id="fib_n" type="number" pattern="\d*" min=0 max=40></input>
+          <button type="submit">calculate N<sup>th</sup> fibernacci number</button>
+      </form>
+      <script src="fib.js"></script>
+      <script src="log.js"></script>
+      <script>
+      Module.onRuntimeInitialized = (_) => {
+          const fib = Module.cwrap("fib", "number", ["number"]);
+          document.getElementById("fib_form").addEventListener("submit",(event)=>{
+          event.preventDefault();
+           log( `${fib_n.value} => ${fib(fib_n.value)}` )
+          })
+      };
+
+      </script>
+  </body>
+</html>
